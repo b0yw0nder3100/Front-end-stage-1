@@ -14,9 +14,9 @@ const App = () => {
     <div>
       <Header></Header>
       <Main>
-        {links.map((link) => {
+        {links.map((link, index) => {
           return (
-            <Button>{link.name}</Button>
+            <a href={link.link} key={index} target="_blank" rel="noreferrer"><Button>{link.name}</Button></a>
           )
         })}
         <Div>
