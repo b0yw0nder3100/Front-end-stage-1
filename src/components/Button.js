@@ -1,6 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-
+/**
+ * Component for showing details of the Button
+ * @component
+ * @param {any} children - Text Content of the Button
+ */
 const Button = ({ children }) => {
   return (
     <ButtonWrapper>{children}</ButtonWrapper>
