@@ -1,0 +1,20 @@
+{
+    "source": {
+        "include": ["src"],
+        "includePattern": ".js$",
+        "exlcudePattern": "(node_modules/|docs)"
+    },
+    "plugins": ["plugins/markdown"],
+    "templates": {
+        "better-docs": {
+            "name": "My React components"
+        },
+        "cleverLinks": true,
+        "monospaceLinks": true
+    },
+    "opts": {
+        "recurse": true,
+        "destination": "./docs/",
+        "readme": "Readme.md"
+    }
+}
