@@ -20,8 +20,8 @@ const App = () => {
           )
         })}
         <Div>
-          <img src={slack} alt="share"></img>
-          <img src={github} alt="share"></img>
+          <img src={slack} alt="slack"></img>
+          <img src={github} alt="github"></img>
         </Div>
       </Main>
       <Footer></Footer>

@@ -8,9 +8,9 @@ const Footer = () => {
     return (
         <FooterWrapper>
             <Div>
-                <Img src={zuri} alt="share"></Img>
+                <Img src={zuri} alt="zuri"></Img>
                 <FooterText>HNG Internship 9 Frontend Task</FooterText>
-                <Img src={i4g} alt="share"></Img>
+                <Img src={i4g} alt="I4G"></Img>
             </Div>
         </FooterWrapper>
 
