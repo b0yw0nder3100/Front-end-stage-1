@@ -1,20 +1,20 @@
 import profilePicture from '../assets/media/profile__img.svg'
 /**
- * Profile
- * @typedef {object} Profile
+ * UserProfile
+ * @typedef {object} UserProfile
  * @property {image} im - Profile Picture
  * @property {string} twitter_name - Twitter Username
  * @property {string} slack_name - Slack Name
  */
 
 /**
- * @type {Profile}
+ * @type {UserProfile}
  */
-const Profile = {
+const UserProfile = {
     img: profilePicture,
     twitter_name: "Martins_Ikpe",
     slack_name: "Martins Ikpe"
 }
 
 
-export default Profile;
+export default UserProfile;
