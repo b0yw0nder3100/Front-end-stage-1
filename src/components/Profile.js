@@ -8,7 +8,6 @@ import styled from 'styled-components'
  * @param {string} slack_name - Slack name of the User
  */
 const Avatar = ({ picture, twitter_name, slack_name }) => {
-
     return (
         <div>
             <img src={picture} alt="profile" id="profile__img"></img>
