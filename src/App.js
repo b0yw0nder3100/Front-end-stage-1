@@ -59,7 +59,7 @@ cursor:pointer;
 width:100%;
 text-align:center;
 :hover {
-background: var(--Gray-500);
+background: var(--Gray-300);
 }
 @media (max-width:500px){
   font-size: 14px;

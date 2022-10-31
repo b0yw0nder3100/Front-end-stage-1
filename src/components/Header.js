@@ -33,6 +33,7 @@ const ShareDesktop = styled.div`
     position:absolute;
     right:352px;
     top: 44px;
+    cursor:pointer;
     @media (max-width:1024px){
         right:300px;
     }
@@ -43,6 +44,7 @@ const ShareDesktop = styled.div`
 `
 const ShareMobile = styled.div`
     position:absolute;
+        cursor:pointer;
     display:none;
     @media (max-width:800px){
             top: 44px;
