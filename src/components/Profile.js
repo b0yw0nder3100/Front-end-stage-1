@@ -12,7 +12,8 @@ const Avatar = ({ picture, twitter_name, slack_name, slack_ID }) => {
     return (
         <Div>
             <DivTwo>
-                <Img src={picture} alt="profile" id="profile__img"></Img>
+                <Img src={picture} alt="profile" id="profile__img" className='profile'></Img>
+                <ImgTwo src={camera} alt="camera" className='camera'></ImgTwo>
             </DivTwo>
             <Twitter id="twitter">@{twitter_name}</Twitter>
             <Slack id="slack">
@@ -28,11 +29,15 @@ const Img = styled.img`
 width: 88px;
 height: 88px;
 display:flex;
+:hover {
+    opacity: 0.3
+}
 `
 const ImgTwo = styled.img`
 width: 20px;
 position:absolute;
-margin: 60px 0 0 35px;
+margin: -30px 0 0 35px;
+display:none;
 `
 const Twitter = styled.p`
 padding: 24px 0 0 0;

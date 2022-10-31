@@ -34,3 +34,7 @@ a {
     text-decoration: none;
     color: var(--Gray-900);
 }
+
+#profile__img:hover + .camera {
+    display: block;
+}
