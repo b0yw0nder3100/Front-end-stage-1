@@ -8,7 +8,7 @@ import UserProfile from '../data/profile'
 const Header = () => {
     return (
         <HeaderWrapper className='flex justify-center'>
-            <Profile picture={UserProfile.img} twitter_name={UserProfile.twitter_name} slack_name={UserProfile.slack_name}></Profile>
+            <Profile picture={UserProfile.img} twitter_name={UserProfile.twitter_name} slack_name={UserProfile.slack_name} slack_ID={UserProfile.slack_ID}></Profile>
             <ShareDesktop>
                 <img src={avatarShareDesktop} alt="share"></img>
             </ShareDesktop>

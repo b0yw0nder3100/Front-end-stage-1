@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 
+
 :root {
     --Gray-200: #EAECF0;
     --Gray-500: #667085;
@@ -28,4 +29,7 @@ body {
     }
 }
 
-
+a {
+    text-decoration: none;
+    color: var(--Gray-900);
+}

@@ -13,7 +13,8 @@ import profilePicture from '../assets/media/profile__img.svg'
 const UserProfile = {
     img: profilePicture,
     twitter_name: "Martins_Ikpe",
-    slack_name: "Martins Ikpe"
+    slack_name: "Martins Ikpe",
+    slack_ID: 'U048QF37JQH'
 }
 
 
