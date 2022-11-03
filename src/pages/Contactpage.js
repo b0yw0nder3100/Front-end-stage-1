@@ -1,16 +1,22 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import Footer from '../components/Footer'
 import checkboximg from '../assets/interface/checkbox.svg'
 
 const Contactpage = () => {
-    const [user, setUser] = React.useState({
+    const [user, setUser] = useState({
         firstName: "",
         lastName: "",
         email: "",
         message: ""
     })
 
-    const [error, setError] = useState("");
+    const [firstnameerror, setfirstnameError] = useState(false)
+    const [lastnameerror, setlastnameError] = useState(false)
+    const [emailerror, setemailError] = useState(false)
+    const [messageerror, setmessageError] = useState(false)
+    const [checkboxerror, setcheckboxError] = useState(false)
+
     const [checkbox, setCheckbox] = useState(false);
 
     function handleChange(e) {
@@ -23,112 +29,137 @@ const Contactpage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (
-            user.firstName.length === 0 ||
+        if (user.firstName.length === 0 ||
             user.lastName.length === 0 ||
             user.email.length === 0 ||
             user.message.length === 0 ||
             checkbox === false
         ) {
-            setError("Please fill all the fields");
+            if (user.firstName.length === 0) setfirstnameError(true)
+            else setfirstnameError(false)
+            if (user.lastName.length === 0) setlastnameError(true)
+            else setlastnameError(false)
+            if (user.email.length === 0) setemailError(true)
+            else setemailError(false)
+            if (user.message.length === 0) setmessageError(true)
+            else setmessageError(false)
+            if (checkbox === false) setcheckboxError(true)
+            else setcheckboxError(false)
         } else {
-            setError("");
+            setfirstnameError(false)
+            setlastnameError(false)
+            setemailError(false)
+            setmessageError(false)
+            setcheckboxError(false)
             console.log(user.firstName, user.lastName, user.email, user.message);
             console.log("Submitted");
         }
     };
     return (
-        <ContactWrapper>
-            <HeaderText>Contact Me</HeaderText>
-            <HeaderParagraph>Hi there, contact me to ask me about anything you have in mind.</HeaderParagraph>
-            <form onSubmit={handleSubmit}>
-                <Div>
+        <div>
+            <ContactWrapper>
+                <HeaderText>Contact Me</HeaderText>
+                <HeaderParagraph>Hi there, contact me to ask me about anything you have in mind.</HeaderParagraph>
+                <form onSubmit={handleSubmit}>
+                    <Div>
+                        <FormElement>
+                            <Label
+                                htmlFor="firstName"
+                            >
+                                First name
+                            </Label>
+                            <Input
+                                name="firstName"
+                                type="text"
+                                id="first_name"
+                                value={user.firstName}
+                                onChange={handleChange}
+                                placeholder="Enter your first name"
+                                firstnameerror={firstnameerror}
+                            />
+                            {firstnameerror && <ErrorText>Please enter a first name</ErrorText>}
+                        </FormElement>
+                        <FormElement>
+                            <Label
+                                htmlFor="lastName"
+                            >
+                                Last Name
+                            </Label>
+                            <Input
+                                name="lastName"
+                                type="text"
+                                id="last_name"
+                                value={user.lastName}
+                                onChange={handleChange}
+                                placeholder="Enter your last name"
+                                lastnameerror={lastnameerror}
+                            />
+                            {lastnameerror && <ErrorText>Please enter a last name</ErrorText>}
+                        </FormElement>
+                    </Div>
+
                     <FormElement>
                         <Label
-                            htmlFor="firstName"
+                            htmlFor="email"
                         >
-                            First name
+                            Email
                         </Label>
                         <Input
-                            name="firstName"
+                            name="email"
                             type="text"
-                            id="first_name"
-                            value={user.firstName}
+                            id="email"
+                            value={user.email}
                             onChange={handleChange}
-                            placeholder="Enter your first name"
+                            placeholder="yourname@email.com"
+                            emailerror={emailerror}
                         />
+                        {emailerror && <ErrorText>Please enter an email</ErrorText>}
                     </FormElement>
+
                     <FormElement>
                         <Label
-                            htmlFor="lastName"
+                            htmlFor="message"
                         >
-                            Last Name
+                            Message
                         </Label>
-                        <Input
-                            name="lastName"
-                            type="text"
-                            id="last_name"
-                            value={user.lastName}
+                        <Textarea
+                            name="message"
+                            id="message"
+                            value={user.message}
                             onChange={handleChange}
-                            placeholder="Enter your last name"
+                            placeholder="Send me a message and I'll reply you as soon as possible..."
+                            messageerror={messageerror}
                         />
+                        {messageerror && <ErrorText>Please enter a message</ErrorText>}
                     </FormElement>
-                </Div>
-
-                <FormElement>
-                    <Label
-                        htmlFor="email"
-                    >
-                        Email
-                    </Label>
-                    <Input
-                        name="email"
-                        type="text"
-                        id="email"
-                        value={user.email}
-                        onChange={handleChange}
-                        placeholder="yourname@email.com"
-                    />
-                </FormElement>
-
-                <FormElement>
-                    <Label
-                        htmlFor="message"
-                    >
-                        Message
-                    </Label>
-                    <Textarea
-                        name="message"
-                        id="message"
-                        value={user.message}
-                        onChange={handleChange}
-                        placeholder="Send me a message and I'll reply you as soon as possible..."
-                    />
-                </FormElement>
 
 
-                <CheckWrapper className="flex items-center pt-[2px] pb-[4px] sm:pt-[24px]">
-                    <Checkbox checkbox={checkbox} onClick={() => setCheckbox(false)}>
-                        <Image
-                            src={checkboximg}
-                            objectFit="cover"
-                            alt="close icon"
-                        />
-                    </Checkbox>
-                    <CheckBoxContainer checkbox={checkbox} onClick={() => setCheckbox(true)}>
-                    </CheckBoxContainer>
+                    <CheckWrapper className="flex items-center pt-[2px] pb-[4px] sm:pt-[24px]">
+                        <Checkbox checkbox={checkbox} onClick={() => setCheckbox(false)}>
+                            <Image
+                                src={checkboximg}
+                                objectFit="cover"
+                                alt="close icon"
+                            />
+                        </Checkbox>
+                        <CheckBoxContainer checkbox={checkbox} onClick={() => setCheckbox(true)} >
+                        </CheckBoxContainer>
 
-                    <Label
-                        htmlFor=""
-                    >
-                        You agree to providing your data to Martins who may contact you.
-                    </Label>
-                </CheckWrapper>
+                        <Label
+                            htmlFor=""
+                        >
+                            You agree to providing your data to Martins who may contact you.
+                        </Label>
+                    </CheckWrapper>
+                    {checkboxerror && <ErrorText>Please check the box</ErrorText>}
 
-                <Button id="btn__submit">Send message</Button>
-            </form>
+                    <Button id="btn__submit">Send message</Button>
+                </form>
 
-        </ContactWrapper>
+            </ContactWrapper>
+
+            <Footer></Footer>
+        </div>
     )
 }
 
@@ -191,9 +222,10 @@ const Input = styled.input`
     &:hover,
     &:focus {
         transition: all 0.1s ease-out;
-        border: 1px solid var(--Primary-300);
-        box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #D1E9FF;
-    }
+        border: ${(props) => props.firstnameerror === false || props.lastnameerror === false || props.emailerror === false ? "1px solid var(--Primary-300)" : "1px solid #F89687"};
+        box-shadow: ${(props) => props.firstnameerror === false || props.lastnameerror === false || props.emailerror === false ? "0px 1px 2px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #D1E9FF"
+        : "0px 1px 2px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #FFD3CC"};
+
     &::placeholder {
         font-weight: 400;
         font-size: 16px;
@@ -220,8 +252,9 @@ const Textarea = styled.textarea`
     &:hover,
     &:focus {
         transition: all 0.1s ease-out;
-        border: 1px solid var(--Primary-300);
-        box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #D1E9FF;
+                border: ${(props) => props.messageerror === false ? "1px solid var(--Primary-300)" : "1px solid #F89687"};
+        box-shadow: ${(props) => props.messageerror === false ? "0px 1px 2px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #D1E9FF"
+        : "0px 1px 2px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #FFD3CC"};
     }
     &::placeholder {
         font-weight: 400;
@@ -229,17 +262,6 @@ const Textarea = styled.textarea`
         line-height: 24px;
         color: var(--Gray-500);
     }`;
-
-const Inputs = styled.input.attrs({ type: "checkbox" })`
-        accent-color: var(--accents-one);
-        opacity:0;
-        width:16px;
-        height:16px;
-        position:absolute;
-        margin: 0px 0 0 0px; 
-        z-index:1;
-        cursor:pointer;
-        `;
 
 const CheckBoxContainer = styled.div`
 display: ${(props) => props.checkbox === true ? "none" : "block"};
@@ -264,7 +286,7 @@ opacity: ${(props) => props.checkbox === true ? "1" : "0"};
 
 const CheckWrapper = styled.div`
 display:flex;
-margin: 24px  0 32px 0;
+margin: 24px  0 0px 0;
 `
 
 const Image = styled.img`
@@ -282,6 +304,7 @@ padding:12px 0px;
 border-radius: 8px;
 width: 100%;
 font-size: 16px;
+margin: 32px 0 0 0;
 line-height: 24px;
 font-weight:600;
 background: var(--Primary-600);
@@ -289,3 +312,10 @@ color:white;
 border:none;
 cursor:pointer;
 `;
+const ErrorText = styled.p`
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+margin: 6px 0 0 0;
+color: var(--Primary-400-B);
+`
