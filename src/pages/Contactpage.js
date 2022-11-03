@@ -311,6 +311,9 @@ background: var(--Primary-600);
 color:white;
 border:none;
 cursor:pointer;
+:hover {
+    opacity:0.5;
+}
 `;
 const ErrorText = styled.p`
 font-weight: 400;
