@@ -22,7 +22,7 @@ export default Footer
 
 const FooterWrapper = styled.footer`
 border-top: 1px solid var(--Gray-200);
-padding: 36px 0 0 0;
+padding: 36px 0 52px 0;
 display:flex;
 @media (max-width:600px){
     flex-direction:column;

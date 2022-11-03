@@ -38,14 +38,14 @@ const Homepage = () => {
 export default Homepage
 
 const HomepageWrapper = styled.div`
-padding: 64px 114px 52px;
+padding: 64px 114px 0px;
 
 @media (max-width:800px) {
-        padding: 62px 40px 52px;
+        padding: 62px 40px 0px;
     }
 
 @media (max-width:600px) {
-        padding: 62px 16px 52px;
+        padding: 62px 16px 0px;
 }
 `
 const Main = styled.main`
