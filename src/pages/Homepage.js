@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import links from '../data/links'
@@ -8,12 +9,16 @@ import slack from "../assets/media/slack.svg"
 
 const Homepage = () => {
     return (
-        <div>
+        <HomepageWrapper>
             <Header></Header>
             <Main>
                 {links.map((link, index) => {
                     return (
-                        <Links href={link.link} key={index} id={link.id} target="_blank" rel="noreferrer">{link.name}</Links>
+                        link.name === "Contact Me" ?
+                            <Link to={link.link} onClick={() => window.scrollTo(0, 0)} style={{ width: '100vw' }}>
+                                <Links>{link.name}</Links>
+                            </Link> :
+                            <Links href={link.link} key={index} id={link.id} target="_blank" rel="noreferrer">{link.name}</Links>
                     )
                 })}
                 <Div>
@@ -26,12 +31,23 @@ const Homepage = () => {
                 </Div>
             </Main>
             <Footer></Footer>
-        </div>
+        </HomepageWrapper>
     )
 }
 
 export default Homepage
 
+const HomepageWrapper = styled.div`
+padding: 64px 114px 52px;
+
+@media (max-width:800px) {
+        padding: 62px 40px 52px;
+    }
+
+@media (max-width:600px) {
+        padding: 62px 16px 52px;
+}
+`
 const Main = styled.main`
 display:flex;
 justify-content: center;
