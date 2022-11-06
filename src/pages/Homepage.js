@@ -79,20 +79,5 @@ background: var(--Gray-300);
 line-height: 20px;
 }`
 const Contact = styled.button`
-font-weight: 500;
-font-size: 18px;
-line-height: 28px;
-background: var(--Gray-200);
-border: 1px solid var(--Gray-200);
-border-radius: 8px;
-padding: 24px 0px;
-cursor:pointer;
-width:100%;
-text-align:center;
-:hover {
-background: var(--Gray-300);
-}
-@media (max-width:500px){
-  font-size: 14px;
-line-height: 20px;
+
 }`
