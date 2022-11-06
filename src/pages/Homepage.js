@@ -79,5 +79,4 @@ background: var(--Gray-300);
 line-height: 20px;
 }`
 const Contact = styled.a`
-
 }`
