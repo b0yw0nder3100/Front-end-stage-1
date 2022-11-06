@@ -87,6 +87,7 @@ border: 1px solid var(--Gray-200);
 border-radius: 8px;
 padding: 24px 0px;
 cursor:pointer;
+color: var(--Gray-900);
 width:100%;
 text-align:center;
 :hover {
